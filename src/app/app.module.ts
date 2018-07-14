@@ -10,6 +10,7 @@ import { BnkGirlComponent } from './components/bnk-girl/bnk-girl.component';
 import { InstagramComponent } from './components/instagram/instagram.component';
 import { InstagramListComponent } from './components/instagram-list/instagram-list.component';
 import { InstagramMemberComponent } from './components/instagram-member/instagram-member.component';
+import { BnkSuffixPipe } from './pipes/bnk-suffix.pipe';
 
 const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: '/dashboard'},
@@ -24,7 +25,8 @@ const routes: Route[] = [
     BnkGirlComponent,
     InstagramComponent,
     InstagramListComponent,
-    InstagramMemberComponent
+    InstagramMemberComponent,
+    BnkSuffixPipe
   ],
   imports: [
     BrowserModule,
