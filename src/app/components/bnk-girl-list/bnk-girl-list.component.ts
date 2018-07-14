@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from '../../models/member';
-import { HttpClient} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { BnkService } from '../../services/bnk.service';
 
 @Component({
   selector: 'app-bnk-girl-list',
@@ -12,12 +12,10 @@ export class BnkGirlListComponent implements OnInit {
 
   members: Member[] = [];
 
-  constructor( private http: HttpClient) {}
+  constructor( private bnk: BnkService) {}
 
   ngOnInit() {
-    this.http.get<Member[]>(`${environment.api_url}/bnk/members`)
-        .subscribe(data => this.members = data);
-    // .subscribe(function(data){this.members = data});
+    this.bnk.list().subscribe(data => this.members = data);
   }
 
 }
