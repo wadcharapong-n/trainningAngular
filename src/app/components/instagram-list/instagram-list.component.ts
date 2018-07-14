@@ -18,7 +18,7 @@ export class InstagramListComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('instagramId');
     this.bnk.instagram(this.id).subscribe(data => {
       this.feed = data;
-      this.feedItem = this.feed.feeds;
+      this.feedItem = this.feed.feeds.filter(i => i.thumbnail.endsWith('.jpg'));
     });
   }
 
